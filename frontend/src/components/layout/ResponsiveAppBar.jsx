@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
         }}
       >
         <Toolbar disableGutters>
-          <Logo size={20} className="mt-20" />
+          <Logo size={20} className="hidden md:block" />
           <Typography
             variant="h6"
             noWrap
@@ -104,7 +104,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <Logo size={40} sx={{ display: { xs: 'none', md: 'flex' } }} />
+          <Logo size={40} className="md:hidden" />
           <Typography
             variant="h5"
             noWrap
