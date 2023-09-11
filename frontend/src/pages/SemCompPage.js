@@ -1,10 +1,34 @@
 import React from "react";
+import PhotoCarousel from "../components/UI/Carousel";
 
 export default function SemComp() {
-  console.log('SemComp');
+
+  var items = [
+    {
+      name: "Vista del Pabellón",
+      url: "https://www.unsa.edu.pe/wp-content/uploads/2020/02/computacin-878x426.png",
+    },
+    {
+      name: "Inauguración del Pabellón",
+      url: "https://www.unsa.edu.pe/wp-content/uploads/2019/12/IMG_9757.jpg",
+    },
+    {
+      name: "Concurso de baile",
+      url: "https://fips.unsa.edu.pe/cienciadelacomputacion/wp-content/uploads/sites/8/2022/11/Ganadores-en-el-Concurso-de-Baile-2022-2-1170x489.png",
+    }
+  ];
+
+  var startDate = new Date().toLocaleDateString();
+  var endDate = new Date().toLocaleDateString();
+
   return (
     <div>
-      <h1>SEMCOMP</h1>
+      <PhotoCarousel 
+        items={items} 
+        interval={5000}
+        startDate={startDate}
+        endDate={endDate}
+      />
     </div>
   );
 }
