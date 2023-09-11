@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PhotoCarousel from "../components/UI/Carousel";
 import { setPageTitle } from '../utils/Page';
-import {EventData} from "../components/UI/EventData";
+import {EventData, AboutEvent} from "../components/UI/EventData";
 
 export default function SemComp() {
 
@@ -36,6 +36,7 @@ export default function SemComp() {
         endDate={endDate}
       />
       <EventData />
+      <AboutEvent />
     </div>
   );
 }
