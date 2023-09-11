@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PhotoCarousel from "../components/UI/Carousel";
+import { setPageTitle } from '../utils/Page';
+import {EventData} from "../components/UI/EventData";
 
 export default function SemComp() {
+
+  useEffect(() => {
+    setPageTitle('Semana de la Computación UNSA');
+  }, []);
 
   var items = [
     {
@@ -29,6 +35,7 @@ export default function SemComp() {
         startDate={startDate}
         endDate={endDate}
       />
+      <EventData />
     </div>
   );
 }

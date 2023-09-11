@@ -43,6 +43,7 @@ export default function PhotoCarousel(props)
         autoPlay={true}
         stopAutoPlayOnHover={false}
         indicators={false}
+        duration={1000}
       >
         {
           props.items.map( function(item, i) {
