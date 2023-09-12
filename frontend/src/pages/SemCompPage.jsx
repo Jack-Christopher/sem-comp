@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PhotoCarousel from "../components/UI/Carousel";
 import { setPageTitle } from '../utils/Page';
 import {EventData, AboutEvent} from "../components/UI/EventData";
+import Countdown from "../components/UI/Countdown";
 
 export default function SemComp() {
 
@@ -37,6 +38,7 @@ export default function SemComp() {
       />
       <EventData />
       <AboutEvent />
+      <Countdown date={new Date(2023,8, 20, 0, 0, 0, 0)} />
     </div>
   );
 }
