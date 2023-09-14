@@ -10,6 +10,8 @@ export default function PersonGrid({ people }) {
             url={person.url}
             alt={person.alt}
             name={person.name}
+            company={person.company}
+            job={person.job}
             description={person.description}
             shortDescription={person.shortDescription}
           />
