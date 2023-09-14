@@ -4,6 +4,7 @@ import { setPageTitle } from '../utils/Page';
 import {EventData, AboutEvent} from "../components/UI/EventData";
 import Countdown from "../components/UI/Countdown";
 import Speakers from "../components/UI/Speakers";
+import Schedule from "../components/UI/Schedule";
 
 export default function SemComp() {
 
@@ -41,6 +42,7 @@ export default function SemComp() {
       <AboutEvent />
       <Countdown date={new Date(2023,8, 20, 0, 0, 0, 0)} />
       <Speakers />
+      <Schedule />
     </div>
   );
 }
