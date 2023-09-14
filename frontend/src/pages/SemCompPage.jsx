@@ -7,6 +7,7 @@ import Speakers from "../components/UI/Speakers";
 import Schedule from "../components/UI/Schedule";
 import SchoolData from "../components/UI/SchoolData";
 import Organizers from "../components/UI/Organizers";
+import Support from "../components/UI/Support";
 
 export default function SemComp() {
 
@@ -47,6 +48,7 @@ export default function SemComp() {
       <Schedule />
       <SchoolData />
       <Organizers />
+      <Support />
     </div>
   );
 }
