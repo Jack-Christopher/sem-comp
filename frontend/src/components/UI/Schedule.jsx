@@ -1,5 +1,5 @@
 import BasicTabs from "../common/BasicTabs";
-import CustomTimeline from "../common/CustomTimeLine";
+import CustomTimeline from "./CustomTimeLine";
 
 export default function Schedule() {
   const data = [

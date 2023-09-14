@@ -5,6 +5,7 @@ import {EventData, AboutEvent} from "../components/UI/EventData";
 import Countdown from "../components/UI/Countdown";
 import Speakers from "../components/UI/Speakers";
 import Schedule from "../components/UI/Schedule";
+import SchoolData from "../components/UI/SchoolData";
 
 export default function SemComp() {
 
@@ -43,6 +44,7 @@ export default function SemComp() {
       <Countdown date={new Date(2023,8, 20, 0, 0, 0, 0)} />
       <Speakers />
       <Schedule />
+      <SchoolData />
     </div>
   );
 }
