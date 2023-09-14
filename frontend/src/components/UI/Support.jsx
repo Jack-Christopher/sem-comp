@@ -15,8 +15,8 @@ export default function Support() {
 
 
   return (
-    <div className="flex flex-col justify-center items-center bg-[#098DCF] py-8">
-      <h1 className="text-2xl md:text-4xl font-bold text-center mb-6 text-white">
+    <div className="flex flex-col justify-center items-center bg-white py-8">
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">
         Con el apoyo de:
       </h1>
       <div className="flex flex-row justify-center items-center px-32 flex-wrap">
