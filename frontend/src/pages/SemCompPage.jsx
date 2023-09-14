@@ -6,6 +6,7 @@ import Countdown from "../components/UI/Countdown";
 import Speakers from "../components/UI/Speakers";
 import Schedule from "../components/UI/Schedule";
 import SchoolData from "../components/UI/SchoolData";
+import Organizers from "../components/UI/Organizers";
 
 export default function SemComp() {
 
@@ -45,6 +46,7 @@ export default function SemComp() {
       <Speakers />
       <Schedule />
       <SchoolData />
+      <Organizers />
     </div>
   );
 }
