@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 import Person from "../common/Person";
+import PersonGrid from "../common/PersonGrid";
 
 export default function Speakers() {
   let speakers = [
@@ -30,19 +31,9 @@ export default function Speakers() {
         Los ponentes que estarán presentes para esta Semana de la Computación son:
       </p>
       <div className="flex flex-row justify-center items-center px-32">
-        <Grid container columns={{ xs: 4, sm: 8, md: 12 }} colSpacing={{ xs: 0.5, md: 1 }} rowSpacing={2}>
-          {speakers.map((speaker, index) => (
-            <Grid item xs={1} sm={2} md={4} key={index}>
-              <Person
-                url={speaker.url}
-                alt={speaker.alt}
-                name={speaker.name}
-                description={speaker.description}
-                shortDescription={speaker.shortDescription}
-              />
-            </Grid>              
-          ))}
-        </Grid>
+        <PersonGrid
+          people={speakers}
+        />
       </div>
     </div>
   );
