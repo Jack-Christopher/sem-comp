@@ -10,13 +10,6 @@ const register = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   
-
-  console.log("req.body: ", req.body);
-  console.log("name: ", name);
-  console.log("lastname: ", lastname);
-  console.log("email: ", email);
-  console.log("password: ", password);
-
   try {
     User.findOne({ email:email }).then(user => {
       if (user) {

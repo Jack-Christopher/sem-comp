@@ -13,9 +13,7 @@ app.get("/", (req, res) => {
     });
   });
 
-
 app.post('/register', controllers.register);
-
-
+app.post('/login', controllers.login);
 
 module.exports = app;
