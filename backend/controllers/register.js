@@ -16,7 +16,7 @@ const register = async (req, res) => {
         return res.status(400).json({ email: 'Email already exists' });
       } else {
         if (!name || !lastname || !email || !password) {
-            return res.status(400).json({ msg: 'Please enter all fields' });
+            return res.status(400).json({ message: 'Please enter all fields' });
         } else {
           const newUser = new User({
             name,
@@ -39,7 +39,7 @@ const register = async (req, res) => {
                 .then((result) => {
                   console.log("User registered: ", result);
                   res.status(201).json({
-                    msg: 'User registered',
+                    message: 'User registered',
                     result
                   });
                 })
