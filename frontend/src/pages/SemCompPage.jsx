@@ -50,7 +50,7 @@ export default function SemComp() {
         editionNumber={sempCompData?.editionNumber}
       />
       <EventData data={sempCompData} />
-      <AboutEvent />
+      <AboutEvent data={sempCompData} />
       <Countdown date={new Date(sempCompData?.startDate)} />
       <Speakers />
       <Schedule />

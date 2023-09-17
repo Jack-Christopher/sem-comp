@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 export default function Countdown(props) {
-  const date = props.date;
   const now = new Date();
 
   const [days, setDays] = useState(0);
@@ -11,8 +10,9 @@ export default function Countdown(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      if (props.date === undefined) return;
       const now = new Date();
-      let diffTime = Math.abs(date - now);
+      let diffTime = Math.abs(props.date - now);
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       diffTime -= diffDays * (1000 * 60 * 60 * 24);
       const diffHours = Math.floor((diffTime) / (1000 * 60 * 60));
@@ -23,11 +23,11 @@ export default function Countdown(props) {
       setMinutes(diffMinutes);
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [props.date]);
 
   return (
     <div className="flex flex-col justify-center items-center py-12">
-      {date > now ? (
+      {props.date > now ? (
         <>
           <h3 className="text-lg md:text-4xl font-bold text-center mb-6">
             El Evento Inicia En:

@@ -66,9 +66,7 @@ function EventData({data}) {
   )
 }
 
-function AboutEvent(props) {
-  const numberOfSpeechs = 20;
-  const contestBases = "https://drive.google.com/file/d/1Oub3ltxsDXNI9FI5dG5hSX6_QBbYm2Su/view?usp=sharing";
+function AboutEvent({data}) {
 
   return (
     <div className="bg-[#F0F6FA] py-5 flex flex-col justify-center px-48">
@@ -79,8 +77,8 @@ function AboutEvent(props) {
         ¡Bienvenidos a una nueva edición de la Semana de la Computación!
       </p>
       <p className="text-sm md:text-lg text-center mb-6">
-        Evento, gratuito y abierto, llega el {new Date().getFullYear()} a su {new Date().getFullYear() - 2017}° edición, 
-        esta vez de forma presencial y online. Tendremos conferencistas nacionales e internacionales con más de {numberOfSpeechs} ponencias 
+        Evento, gratuito y abierto, llega el {data.editionNumber}° edición, 
+        esta vez de forma presencial y online. Tendremos conferencistas nacionales e internacionales con más de {data.numberOfPresentations} ponencias 
         en Computación. Las charlas se transmitirán por las plataformas de 
         <a href="https://www.youtube.com/channel/UCIREVPQo9SrJvhgWOTfVgDA" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700"> Youtube </a>
          y 
@@ -95,7 +93,7 @@ function AboutEvent(props) {
             <ListItemIcon> <EmojiEventsIcon /> </ListItemIcon>
             <ListItemText 
               primary="Concurso de programación competitiva" 
-              secondary={<a href={contestBases} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">Bases del concurso</a>}
+              secondary={<a href={data.CPContestRulesUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">Bases del concurso</a>}
             />
           </ListItem>
           <ListItem>
