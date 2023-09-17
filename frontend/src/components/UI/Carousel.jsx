@@ -24,7 +24,7 @@ const CarouselText = (props) => {
         Semana de la Computación UNSA {new Date().getFullYear()}
       </h1>
       <h2 className="text-sm md:text-3xl font-bold text-center mb-6">
-        {new Date().getFullYear() - 2017}° Edición
+        {props.editionNumber}° Edición
       </h2>
       <h3 className="text-sm md:text-2xl font-bold text-center">
         {props.startDate} - {props.endDate} Arequipa, Perú
@@ -54,6 +54,7 @@ export default function PhotoCarousel(props)
                   <CarouselText 
                     startDate={props.startDate}
                     endDate={props.endDate}
+                    editionNumber={props.editionNumber}
                   />
                 </div>
               </div>

@@ -47,6 +47,7 @@ export default function SemComp() {
         interval={5000}
         startDate={new Date(sempCompData?.startDate)?.toLocaleDateString()}
         endDate={new Date(sempCompData?.endDate)?.toLocaleDateString()}
+        editionNumber={sempCompData?.editionNumber}
       />
       <EventData data={sempCompData} />
       <AboutEvent />
