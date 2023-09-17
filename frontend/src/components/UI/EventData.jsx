@@ -43,7 +43,7 @@ const CustomItem = (props) => {
   )
 }
 
-function EventData(props) {
+function EventData({data}) {
 
   return (
     <div className="bg-[#003C84] py-5 flex justify-center">
@@ -57,10 +57,10 @@ function EventData(props) {
             flexItem 
           />}
       >
-        <CustomItem icon={<PeopleAltTwoToneIcon />}> 250+ Asistentes </CustomItem>
-        <CustomItem icon={<CalendarMonthTwoToneIcon/>}> 4 Días </CustomItem>
-        <CustomItem icon={<RecordVoiceOverTwoToneIcon/>}> 20+ Charlas </CustomItem>
-        <CustomItem icon={<CelebrationTwoToneIcon/>}> 1+ Actividades Sociales </CustomItem>
+        <CustomItem icon={<PeopleAltTwoToneIcon />}> {data.numberOfAttendees}+ Asistentes </CustomItem>
+        <CustomItem icon={<CalendarMonthTwoToneIcon/>}> {data.numberOfDays} Días </CustomItem>
+        <CustomItem icon={<RecordVoiceOverTwoToneIcon/>}> {data.numberOfPresentations}+ Charlas </CustomItem>
+        <CustomItem icon={<CelebrationTwoToneIcon/>}> {data.numberOfSocialActivities}+ Actividades Sociales </CustomItem>
       </Stack>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PhotoCarousel from "../components/UI/Carousel";
 import { setPageTitle } from '../utils/Page';
 import {EventData, AboutEvent} from "../components/UI/EventData";
@@ -11,9 +11,16 @@ import Support from "../components/UI/Support";
 import Quote from "../components/UI/Quote";
 
 export default function SemComp() {
+  const [sempCompData, setSemCompData] = useState({});
 
   useEffect(() => {
     setPageTitle('Semana de la Computación UNSA');
+    fetch(process.env.REACT_APP_BACKEND_URL + '/semcomp/getdata')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setSemCompData(data);
+      });
   }, []);
 
   var items = [
@@ -31,20 +38,19 @@ export default function SemComp() {
     }
   ];
 
-  var startDate = new Date().toLocaleDateString();
-  var endDate = new Date().toLocaleDateString();
+
 
   return (
     <div>
       <PhotoCarousel 
         items={items} 
         interval={5000}
-        startDate={startDate}
-        endDate={endDate}
+        startDate={new Date(sempCompData?.startDate)?.toLocaleDateString()}
+        endDate={new Date(sempCompData?.endDate)?.toLocaleDateString()}
       />
-      <EventData />
+      <EventData data={sempCompData} />
       <AboutEvent />
-      <Countdown date={new Date(2023,8, 20, 0, 0, 0, 0)} />
+      <Countdown date={new Date(sempCompData?.startDate)} />
       <Speakers />
       <Schedule />
       <SchoolData />
