@@ -10,6 +10,7 @@ const setSemCompData = async (req, res) => {
     startDate: req.body.startDate,
     endDate: req.body.endDate,
     numberOfAttendees: req.body.numberOfAttendees,
+    numberOfDays: req.body.numberOfDays,
     numberOfPresentations: req.body.numberOfPresentations,
     numberOfSocialActivities: req.body.numberOfSocialActivities,
     CPContestRulesUrl: req.body.CPContestRulesUrl,

@@ -7,6 +7,7 @@ const SemCompSchema = new Schema({
   startDate: {type : Date, required: [true, "Start date is required"]},
   endDate: {type : Date, required: [true, "End date is required"]},
   numberOfAttendees: {type : Number, required: [true, "Number of attendees is required"]},
+  numberOfDays: {type : Number, required: [true, "Number of days is required"]},
   numberOfPresentations: {type : Number, required: [true, "Number of presentations is required"]},
   numberOfSocialActivities: {type : Number, required: [true, "Number of social activities is required"]},
   CPContestRulesUrl: {type : String, required: [true, "Competitive programming contest rules URL is required"]},
