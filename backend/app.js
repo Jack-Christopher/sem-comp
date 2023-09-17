@@ -13,7 +13,12 @@ app.get("/", (req, res) => {
     });
   });
 
+// common
 app.post('/register', controllers.register);
 app.post('/login', controllers.login);
+
+// semComp
+app.get('/semcomp/getdata', controllers.semComp.getSemCompData);
+app.post('/semcomp/setdata', controllers.semComp.setSemCompData);
 
 module.exports = app;
