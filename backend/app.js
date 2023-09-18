@@ -21,4 +21,8 @@ app.post('/login', controllers.login);
 app.get('/semcomp/getdata', controllers.semComp.getSemCompData);
 app.post('/semcomp/setdata', controllers.semComp.setSemCompData);
 
+// person
+app.post('/person/add', controllers.person.addPerson);
+app.get('/person/get', controllers.person.getPeople);
+
 module.exports = app;
