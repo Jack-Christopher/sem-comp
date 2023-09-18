@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import PersonGrid from "../common/PersonGrid";
 
 export default function Organizers() {
-
   const [organizers, setOrganizers] = useState([]);
 
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + '/person/get')
       .then(res => res.json())
+      .then(res => res.filter(person => person.type === 'organizer'))
       .then(res => {
         setOrganizers(res);
       })
