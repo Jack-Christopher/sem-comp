@@ -25,4 +25,8 @@ app.post('/semcomp/setdata', controllers.semComp.setSemCompData);
 app.post('/person/add', controllers.person.addPerson);
 app.get('/person/get', controllers.person.getPeople);
 
+// schedule
+app.post('/schedule/add', controllers.schedule.addSchedule);
+app.get('/schedule/get', controllers.schedule.getSchedules);
+
 module.exports = app;
