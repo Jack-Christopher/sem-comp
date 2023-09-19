@@ -10,6 +10,13 @@ import TimelineOppositeContent, {
 }from '@mui/lab/TimelineOppositeContent';
 
 export default function CustomTimeline({data}) {
+  const getTime = (dateString) => {
+    const date = new Date(dateString);
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+  }
+
   return (
     <Timeline position="right" className="w-full"
       sx={{
@@ -21,7 +28,9 @@ export default function CustomTimeline({data}) {
       {data.map((item) => (
         <TimelineItem>
           <TimelineOppositeContent color="text.secondary">
-          {item.time}
+
+          {/* {item.startTime}-{item.endTime}  */}
+          {getTime(item.startTime)}-{getTime(item.endTime)}
           <div className="flex flex-row justify-center items-center">
             {item.photoUrl && (
               <img src={item.photoUrl} alt="logo" className="w-20 h-20 rounded-full" />
