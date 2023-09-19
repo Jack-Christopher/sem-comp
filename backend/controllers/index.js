@@ -3,6 +3,7 @@ const register = require('./register');
 const semComp = require('./semComp');
 const person = require('./person');
 const schedule = require('./schedule');
+const quote = require('./quote');
 
 module.exports = {
   login,
@@ -10,4 +11,5 @@ module.exports = {
   semComp,
   person,
   schedule,
+  quote,
 }

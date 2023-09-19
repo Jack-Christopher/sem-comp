@@ -29,4 +29,8 @@ app.get('/person/get', controllers.person.getPeople);
 app.post('/schedule/add', controllers.schedule.addSchedule);
 app.get('/schedule/get', controllers.schedule.getSchedules);
 
+// quote
+app.post('/quote/add', controllers.quote.addQuote);
+app.get('/quote/get', controllers.quote.getRandomQuote);
+
 module.exports = app;
