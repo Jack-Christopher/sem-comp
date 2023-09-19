@@ -4,6 +4,7 @@ const semComp = require('./semComp');
 const person = require('./person');
 const schedule = require('./schedule');
 const quote = require('./quote');
+const sponsor = require('./sponsor');
 
 module.exports = {
   login,
@@ -12,4 +13,5 @@ module.exports = {
   person,
   schedule,
   quote,
+  sponsor,
 }

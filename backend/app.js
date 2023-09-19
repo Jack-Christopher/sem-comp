@@ -33,4 +33,8 @@ app.get('/schedule/get', controllers.schedule.getSchedules);
 app.post('/quote/add', controllers.quote.addQuote);
 app.get('/quote/get', controllers.quote.getRandomQuote);
 
+// sponsor
+app.post('/sponsor/add', controllers.sponsor.addSponsor);
+app.get('/sponsor/get', controllers.sponsor.getSponsors);
+
 module.exports = app;
