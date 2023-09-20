@@ -13,7 +13,7 @@ const register = async (req, res) => {
   try {
     User.findOne({ email:email }).then(user => {
       if (user) {
-        return res.status(400).json({ email: 'Email already exists' });
+        return res.status(400).json({ message: 'Email already exists' });
       } else {
         if (!name || !lastname || !email || !password) {
             return res.status(400).json({ message: 'Please enter all fields' });
