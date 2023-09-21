@@ -11,17 +11,48 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import AdbIcon from '@mui/icons-material/Adb';
 
 import { setPageTitle } from '../../utils/Page';
 import Logo from '../UI/Logo';
+import { useCookies } from 'react-cookie';
 
-const pages = ['Inicio', 'SemComp'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  {
+    name: 'Inicio',
+    path: '/',
+  }, 
+  {
+    name: 'SemComp',
+    path: '/semcomp',
+  },
+];
+
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const [cookies, setCookie, removeCookie] = useCookies(['CS-User-Token']);
+
+  const settings = [
+    {
+      name:'Cuenta',
+      function: () => window.location.href = '/account',
+    },
+    {
+      name:'Dashboard',
+      function: () => window.location.href = '/dashboard',
+    },
+    {
+      name:'Cerrar sesión',
+      function: () => {
+        removeCookie('CS-User-Token');
+        window.location.href = '/';
+      },
+    }
+  ];
+
+  const userPhotoUrl = "https://st2.depositphotos.com/2703645/11507/v/450/depositphotos_115078626-stock-illustration-man-avatar-character.jpg";
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -98,8 +129,10 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <a href={page.path}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </a>
                 </MenuItem>
               ))}
             </Menu>
@@ -112,7 +145,7 @@ function ResponsiveAppBar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { sm: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -126,21 +159,49 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                onClick={() => window.location.href = page.path}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+            {(cookies['CS-User-Token'] === undefined) ? (
+                <div className="flex flex-row space-x-3">
+                  <Button
+                    onClick={() => window.location.href = '/login'}
+                    sx={{ 
+                      my: 2, 
+                      color: 'white',
+                      display: 'block', 
+                      backgroundColor: '#A0E200',
+                    }}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    onClick={() => window.location.href = '/register'}
+                    sx={{ 
+                      my: 2, 
+                      color: 'white',
+                      display: 'block', 
+                      backgroundColor: '#A0E200',
+                    }}
+                  >
+                    Register
+                  </Button>
+                </div>
+              ) : (
+                <Tooltip title="Ajustes">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="Guest" src={userPhotoUrl} />
+                  </IconButton>
+                </Tooltip>
+              )
+            }
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -158,8 +219,13 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Button
+                    onClick={setting.function}
+                    sx={{ color: 'black', display: 'block' }}
+                  >
+                    {setting.name}
+                  </Button>
                 </MenuItem>
               ))}
             </Menu>
