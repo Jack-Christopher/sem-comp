@@ -1,28 +1,55 @@
 const db = require('../database/db');
 const SemComp = require('../models/semcomp');
 
-const setSemCompData = async (req, res) => {
+const updateSemCompData = async (req, res) => {
   db.connect();
 
-  const semcomp = new SemComp({
+  const data = {
     year: req.body.year,
     editionNumber: req.body.editionNumber,
-    startDate: req.body.startDate,
-    endDate: req.body.endDate,
+    startDate: req.body.startDate + 'T00:00:00.000-05:00',
+    endDate: req.body.endDate + 'T00:00:00.000-05:00',
     numberOfAttendees: req.body.numberOfAttendees,
     numberOfDays: req.body.numberOfDays,
     numberOfPresentations: req.body.numberOfPresentations,
     numberOfSocialActivities: req.body.numberOfSocialActivities,
     CPContestRulesUrl: req.body.CPContestRulesUrl,
-  });
+  };
 
-  try {
-    const savedSemComp = await semcomp.save();
-    res.status(200).json(savedSemComp);
-  }
-  catch (err) {
-    res.status(400).json({ message: err });
-  }
+  const currentYear = new Date().getFullYear();
+
+  SemComp.findOne({ year: currentYear })
+    .then((result) => {
+      console.log('itemId: ' + result._id);
+      return result._id;
+    })
+    .then((itemId) => {
+      if (itemId) {
+        SemComp.updateOne({ _id: itemId }, data)
+          .then((result) => {
+            console.log(result);
+            res.status(200).json({ message: "SemComp data updated successfully" });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(400).json({ message: err });
+          });
+      } else {
+        const newSemComp = new SemComp(data);
+        newSemComp.save()
+          .then((result) => {
+            console.log(result);
+            res.status(200).json({ message: "SemComp data updated successfully" });
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(400).json({ message: err });
+          });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 const getSemCompData = async (req, res) => {
@@ -40,5 +67,5 @@ const getSemCompData = async (req, res) => {
 
 module.exports = {
   getSemCompData,
-  setSemCompData,
+  updateSemCompData,
 }

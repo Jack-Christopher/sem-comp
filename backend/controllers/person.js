@@ -16,10 +16,11 @@ const addPerson = async (req, res) => {
 
   try {
     const savedPerson = await person.save();
-    res.status(200).json(savedPerson);
+    res.status(200).json({ message: "Person added successfully" });
+
   }
   catch (err) {
-    res.status(400).json({ message: err });
+    res.status(400).json(err);
   }
 }
 
@@ -31,7 +32,7 @@ const getPeople = async (req, res) => {
     res.status(200).json(people);
   }
   catch (err) {
-    res.status(400).json({ message: err });
+    res.status(400).json(err);
   }
 }
 

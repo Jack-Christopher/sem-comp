@@ -18,8 +18,8 @@ app.post('/register', controllers.register);
 app.post('/login', controllers.login);
 
 // semComp
-app.get('/semcomp/getdata', controllers.semComp.getSemCompData);
-app.post('/semcomp/setdata', controllers.semComp.setSemCompData);
+app.get('/semcomp/get', controllers.semComp.getSemCompData);
+app.post('/semcomp/update', controllers.semComp.updateSemCompData);
 
 // person
 app.post('/person/add', controllers.person.addPerson);
