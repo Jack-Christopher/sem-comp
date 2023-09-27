@@ -15,7 +15,7 @@ export default function SemComp() {
 
   useEffect(() => {
     setPageTitle('Semana de la Computación UNSA');
-    fetch(process.env.REACT_APP_BACKEND_URL + '/semcomp/getdata')
+    fetch(process.env.REACT_APP_BACKEND_URL + '/semcomp/get')
       .then(response => response.json())
       .then(data => {
         console.log(data);

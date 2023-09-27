@@ -8,6 +8,7 @@ import {
 import SemComp from './pages/SemCompPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
 
 function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ function AppRoutes() {
         <Route exact path="/semcomp" element={<SemComp/>} />
         <Route exact path="/login" element={<Login/>} />
         <Route exact path="/register" element={<Register/>} />
+        <Route exact path="/dashboard" element={<Dashboard/>} />
         <Route path="*" component={() => <h1>Page not found</h1>} />
       </Routes>
     </Router>
