@@ -14,10 +14,10 @@ const addSponsor = async (req, res) => {
 
   try {
     const newSponsor = await sponsor.save();
-    res.status(200).json(newSponsor);
+    res.status(200).json({ message: "Sponsor added successfully" });
   }
   catch (err) {
-    res.status(400).json({ message: err });
+    res.status(400).json(err);
   }
 }
 
@@ -29,7 +29,7 @@ const getSponsors = async (req, res) => {
     res.status(200).json(sponsors);
   }
   catch (err) {
-    res.status(400).json({ message: err });
+    res.status(400).json(err);
   }
 }
 
