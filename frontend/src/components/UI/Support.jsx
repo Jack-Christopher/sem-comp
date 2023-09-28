@@ -20,14 +20,14 @@ export default function Support() {
       <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">
         Con el apoyo de:
       </h1>
-      <div className="flex flex-row justify-center items-center px-32 flex-wrap">
+      <div className="flex flex-row justify-center items-center px-16 flex-wrap">
         {sponsors.map((item) => (
           <div key={item.name}>
-            <a href={item.websiteUrl} target="_blank" rel="noreferrer"
-              className="w-1/6 h-full rounded-sm border-white border-3 shadow-lg p-4" 
-            >
+            <a href={item.websiteUrl} target="_blank" rel="noreferrer">
               <img 
-                src={item.photoUrl} alt={item.name} className="h-16 px-3"
+                src={item.photoUrl} 
+                alt={item.name} 
+                className="h-20 px-6 rounded-lg border-white border-3 shadow-md p-4 hover:opacity-95 hover:shadow-xl"
               />
             </a>
           </div>

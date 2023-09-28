@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { Alert, Snackbar } from '@mui/material';
 import SpeakerForm from './SpeakerForm';
 import OrganizerForm from './OrganizerForm';
+import SponsorForm from './SponsorForm';
 
 async function updateSemCompData(
   year, editionNumber, startDate, endDate, numberOfAttendees, 
@@ -254,6 +255,12 @@ export default function SemCompForm() {
         <hr />
 
         <OrganizerForm 
+          setNotification={setNotification}
+        />
+
+        <hr />
+
+        <SponsorForm
           setNotification={setNotification}
         />
 
