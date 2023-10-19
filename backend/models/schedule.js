@@ -16,6 +16,7 @@ const event = new Schema({
 
 const ScheduleSchema = new Schema({
   editionNumber: {type: Number, required: [true, "Edition number is required"]},
+  index: {type: Number, required: [true, "Index is required"]},
   name: {type: String, required: [true, "Name is required"]},
   events:{type: [event], required: [true, "Events are required"]},
 });
